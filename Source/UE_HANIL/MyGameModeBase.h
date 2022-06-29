@@ -13,5 +13,5 @@ UCLASS()
 class UE_HANIL_API AMyGameModeBase : public AGameModeBase
 {
 	GENERATED_BODY()
-	
+		AMyGameModeBase();
 };
