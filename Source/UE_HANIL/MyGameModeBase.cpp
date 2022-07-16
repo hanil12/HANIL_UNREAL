@@ -6,5 +6,10 @@
 
 AMyGameModeBase::AMyGameModeBase()
 {
-	DefaultPawnClass = AMyCharacter::StaticClass();
+	static ConstructorHelpers::FClassFinder<ACharacter> BP_Char(TEXT("Blueprint'/Game/BluePrints/BP_BlasterCPP.BP_BlasterCPP_C'"));
+
+	if (BP_Char.Succeeded())
+	{
+		DefaultPawnClass = BP_Char.Class;
+	}
 }

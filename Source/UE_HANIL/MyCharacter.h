@@ -26,9 +26,14 @@ public:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
+	void Attack();
+
 	void UpDown(float Value);
 	void LeftRight(float Value);
 	void Yaw(float value);
+
+	UFUNCTION()
+	void OnAttackMontageEnded(UAnimMontage* Montage, bool bInterrupted);
 
 private:
 	UPROPERTY(VisibleAnyWhere)
@@ -37,9 +42,20 @@ private:
 	UPROPERTY(VisibleAnyWhere)
 	class UCameraComponent* Camera;
 
-	UPROPERTY(VisibleAnyWhere, Category = "Stat")
-	int _hp;
-	UPROPERTY(VisibleAnyWhere, Category = "Stat")
-	int _mp;
+	UPROPERTY()
+	class UCPP_MyAnimInstance* AnimInstace;
 
+	UPROPERTY(VisibleAnywhere, Category = Pawn)
+	bool IsAttacking = false;
+
+	UPROPERTY()
+	int32 AttackIndex = 0;
+
+public:
+
+	UPROPERTY()
+	float HorizontalValue = 0.0f;
+
+	UPROPERTY()
+	float VerticalValue = 0.0f;
 };
