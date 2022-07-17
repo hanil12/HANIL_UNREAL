@@ -6,7 +6,7 @@
 
 AMyGameModeBase::AMyGameModeBase()
 {
-	static ConstructorHelpers::FClassFinder<ACharacter> BP_Char(TEXT("Blueprint'/Game/BluePrints/BP_BlasterCPP.BP_BlasterCPP_C'"));
+	static ConstructorHelpers::FClassFinder<ACharacter> BP_Char(TEXT("Blueprint'/Game/BluePrints/CPP_Override/BP_BlasterCPP.BP_BlasterCPP_C'"));
 
 	if (BP_Char.Succeeded())
 	{
